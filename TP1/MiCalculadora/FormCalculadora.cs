@@ -50,14 +50,29 @@ namespace MiCalculadora
 
         private void btnOperar_Click(object sender, EventArgs e)
         {
-            string numero1 = this.txtNumero1.Text;
-            string numero2 = this.txtNumero2.Text;
+            string numero1 = this.txtNumero1.Text.Replace(".", ",");
+            string numero2 = this.txtNumero2.Text.Replace(".", ",");
             string operador = this.cmbOperador.Text;
             string operadorAMostrar = operador == " " ? "+" : operador;
-            string numero2AMostrar = numero2.StartsWith("-") == true ? $"({numero2})" : numero2;
-            string resutaldo = Operar(numero1, numero2, operador).ToString();
-            this.lblResultado.Text = resutaldo;
-            this.lstOperaciones.Items.Add($"{numero1} {operadorAMostrar} {numero2AMostrar} = {resutaldo}");
+            string numero1AMostrar = numero1;
+            string numero2AMostrar = numero2;
+            if (numero1 == "")
+            {
+                numero1AMostrar = "0";
+            }
+            if (numero2 == "")
+            {
+                numero2AMostrar = "0";
+            }
+            numero2AMostrar = numero2.StartsWith("-") == true ? $"({numero2})" : numero2AMostrar;
+            double resultado = Operar(numero1, numero2, operador);
+            string resultadoAMostrar = resultado.ToString();
+            if (resultado == double.MinValue && operador == "/")
+            {
+                resultadoAMostrar = "Inválido";
+            }
+            this.lblResultado.Text = resultadoAMostrar;
+            this.lstOperaciones.Items.Add($"{numero1AMostrar} {operadorAMostrar} {numero2AMostrar} = {resultadoAMostrar}");
         }
 
         private void btnConvertirABinario_Click(object sender, EventArgs e)

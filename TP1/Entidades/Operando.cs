@@ -151,7 +151,7 @@ namespace Entidades
         /// <returns>Resta de los atributos 'numero' de n1 y n2</returns>
         public static double operator - (Operando n1, Operando n2)
         {
-            return n1.numero - n2.numero;
+            return Math.Round((n1.numero - n2.numero), 4);
         }
 
         /// <summary>
@@ -162,7 +162,7 @@ namespace Entidades
         /// <returns>Suma de los atributos 'numero' de n1 y n2</returns>
         public static double operator + (Operando n1, Operando n2)
         {
-            return n1.numero + n2.numero;
+            return Math.Round((n1.numero + n2.numero), 4);
         }
 
         /// <summary>
@@ -173,7 +173,7 @@ namespace Entidades
         /// <returns>Producto de los atributos 'numero' de n1 y n2</returns>
         public static double operator * (Operando n1, Operando n2)
         {
-            return n1.numero * n2.numero;
+            return Math.Round((n1.numero * n2.numero), 4);
         }
 
         /// <summary>
@@ -195,7 +195,7 @@ namespace Entidades
             }
             else
             {
-                ret = n1.numero / n2.numero;
+                ret = Math.Round((n1.numero / n2.numero), 4);
             }
             return ret;
         }

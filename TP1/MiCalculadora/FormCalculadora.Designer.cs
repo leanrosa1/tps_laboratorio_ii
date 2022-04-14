@@ -87,7 +87,7 @@
             // 
             this.lblResultado.AutoSize = true;
             this.lblResultado.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblResultado.Location = new System.Drawing.Point(413, 18);
+            this.lblResultado.Location = new System.Drawing.Point(392, 13);
             this.lblResultado.Name = "lblResultado";
             this.lblResultado.Size = new System.Drawing.Size(29, 32);
             this.lblResultado.TabIndex = 4;
