@@ -6,6 +6,14 @@ namespace Entidades
     {
         private double numero;
 
+        private string Numero
+        {
+            set
+            {
+                this.numero = this.ValidarOperando(value);
+            }
+        }
+
         /// <summary>
         /// Inicializa el atributo numero en 0
         /// </summary>
@@ -26,8 +34,9 @@ namespace Entidades
         /// Inicializa el atributo numero con el valor de tipo string recibido por parámetro
         /// </summary>
         /// <param name="strNumero">Valor tipo string a asignar</param>
-        public Operando (string strNumero) :this(double.Parse(strNumero))
+        public Operando (string strNumero) 
         {
+            this.Numero = strNumero;
         }
 
         /// <summary>
@@ -84,7 +93,9 @@ namespace Entidades
             bool esBinario = this.EsBinario(binario);
             if (esBinario)
             {
-                ret = Convert.ToInt32(binario, 2).ToString();
+                int resultado = Convert.ToInt32(binario, 2);
+                resultado = Math.Abs(resultado);
+                ret = resultado.ToString();
             }
             else
             {
@@ -104,16 +115,8 @@ namespace Entidades
         public string DecimalBinario (double numero)
         {
             string ret;
-            // PREGUNTAR: dice quedarse con la parte entera y absoluta
-            if (numero < 0)
-            {
-                ret = "Valor inválido";
-            }
-            else
-            {
-                int parteEntera = (int)(numero);
-                ret = Convert.ToString(parteEntera, 2);
-            }
+            int parteEnteraAbsoluta = Math.Abs((int)numero);
+            ret = Convert.ToString(parteEnteraAbsoluta, 2);
             return ret;
         }
 

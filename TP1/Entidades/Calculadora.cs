@@ -23,7 +23,6 @@ namespace Entidades
             double ret = 0;
             operador = ValidarOperador(operador);
             
-            // PREGUNTAR
             switch (operador)
             {
                 case '+':
