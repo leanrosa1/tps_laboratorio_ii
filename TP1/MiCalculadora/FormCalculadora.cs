@@ -56,18 +56,18 @@ namespace MiCalculadora
             string operadorAMostrar = operador == " " ? "+" : operador;
             string numero1AMostrar = numero1;
             string numero2AMostrar = numero2;
-            if (numero1 == "")
+            if (numero1 == "" || !double.TryParse(numero1, out double n))
             {
                 numero1AMostrar = "0";
             }
-            if (numero2 == "")
+            if (numero2 == "" || !double.TryParse(numero2, out n))
             {
                 numero2AMostrar = "0";
             }
             numero2AMostrar = numero2.StartsWith("-") == true ? $"({numero2})" : numero2AMostrar;
             double resultado = Operar(numero1, numero2, operador);
             string resultadoAMostrar = resultado.ToString();
-            if (resultado == double.MinValue && operador == "/")
+            if ((resultado == double.MinValue && operador == "/"))
             {
                 resultadoAMostrar = "Inválido";
             }
@@ -82,7 +82,12 @@ namespace MiCalculadora
             if (resultado != "")
             {
                 Operando operando = new Operando(resultado);
-                this.lblResultado.Text = operando.DecimalBinario(resultado);
+                string binario = operando.DecimalBinario(resultado);
+                if (binario.ToLower() == "valor inválido")
+                {
+                    binario = "Inválido";
+                }
+                this.lblResultado.Text = binario;
             }
         }
 
@@ -93,7 +98,12 @@ namespace MiCalculadora
             if (resultado != "")
             {
                 Operando operando = new Operando(resultado);
-                this.lblResultado.Text = operando.BinarioDecimal(resultado);
+                string decimalResult = operando.BinarioDecimal(resultado);
+                if (decimalResult.ToLower() == "valor inválido")
+                {
+                    decimalResult = "Inválido";
+                }
+                this.lblResultado.Text = decimalResult;
             }
         }
 
