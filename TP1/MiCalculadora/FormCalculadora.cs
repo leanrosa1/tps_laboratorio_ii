@@ -14,6 +14,9 @@ namespace MiCalculadora
     public partial class FormCalculadora : Form
     {
         #region Constructors
+        /// <summary>
+        /// Inicializa el formulario llamando a InitializeComponent()
+        /// </summary>
         public FormCalculadora()
         {
             InitializeComponent();
@@ -21,6 +24,10 @@ namespace MiCalculadora
         #endregion
 
         #region Methods
+
+        /// <summary>
+        /// Borra los valores de txtNumero1, txtNumero2, cmbOperador y lblResultado  
+        /// </summary>
         private void Limpiar()
         {
             this.txtNumero1.Text = "";
@@ -29,6 +36,13 @@ namespace MiCalculadora
             this.lblResultado.Text = "";
         }
 
+        /// <summary>
+        /// Calcula, de ser posible, el número resultante de los parámetros recibidos
+        /// </summary>
+        /// <param name="numero1">Valor de tipo string que representa el primer operando</param>
+        /// <param name="numero2">Valor de tipo string que representa el segundo operando</param>
+        /// <param name="operador">Valor de tipo string que representa el operador</param>
+        /// <returns> Valor de tipo double con el resultado </returns>
         private static double Operar(string numero1, string numero2, string operador)
         {
             Operando operando1 = new Operando(numero1);
@@ -38,16 +52,32 @@ namespace MiCalculadora
         #endregion
 
         #region Events
+
+        /// <summary>
+        /// Al dispararse el evento Load en FormCalculadora, invoca a la función Limpiar()
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormCalculadora_Load(object sender, EventArgs e)
         {
             this.Limpiar();
         }
 
+        /// <summary>
+        /// Al dispararse el evento Click en btnLimpiar, invoca a la función Limpiar()
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             this.Limpiar();
         }
 
+        /// <summary>
+        /// Al dispararse el evento Click en btnOperar , realiza la operación y muestra el resultado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOperar_Click(object sender, EventArgs e)
         {
             string numero1 = this.txtNumero1.Text.Replace(".", ",");
@@ -75,6 +105,12 @@ namespace MiCalculadora
             this.lstOperaciones.Items.Add($"{numero1AMostrar} {operadorAMostrar} {numero2AMostrar} = {resultadoAMostrar}");
         }
 
+        /// <summary>
+        /// Al dispararse el evento Click en btnConvertirABinario, convierte -de ser posible- el resultado
+        /// en su representación binaria y lo muestra en pantalla
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConvertirABinario_Click(object sender, EventArgs e)
         {
             string resultado = this.lblResultado.Text;
@@ -91,6 +127,12 @@ namespace MiCalculadora
             }
         }
 
+        /// <summary>
+        /// Al dispararse el evento Click en btnConvertirADecimal, convierte -de ser posible- el resultado
+        /// en su representación decimal y lo muestra en pantalla
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
             string resultado = this.lblResultado.Text;
@@ -107,6 +149,12 @@ namespace MiCalculadora
             }
         }
 
+        /// <summary>
+        /// Al dispararse el evento FormClosing en FormCalculadora, muestra un MessageBox para
+        /// que el usuario confirme si efectivamente desea cerrar el formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormCalculadora_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("¿Seguro de querer salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
@@ -115,6 +163,11 @@ namespace MiCalculadora
             }
         }
 
+        /// <summary>
+        /// Al dispararse el evento Click en btnCerrar, cierra el formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
