@@ -17,7 +17,7 @@ namespace Entidades
         /// <summary>
         /// Inicializa el atributo numero en 0
         /// </summary>
-        public Operando () :this(0)
+        public Operando () :this(0d)
         {
         }
 
@@ -50,8 +50,8 @@ namespace Entidades
         private double ValidarOperando (string strNumero)
         {
             double ret;
-            bool isNumeric = double.TryParse(strNumero, out double numero);
-            if (isNumeric)
+            bool esNumerico = double.TryParse(strNumero, out double numero);
+            if (esNumerico)
             {
                 ret = numero;
             }
