@@ -10,8 +10,7 @@ namespace Entidades
     {
         #region Fields
         private DateTime fecha;
-        private Vecino vecino;
-        private Empleado empleado;
+        private string empleadoNombre;
         private Guid identificador;
         private TipoDeReclamo tipo;
         private string observacion;
@@ -20,14 +19,13 @@ namespace Entidades
         #region Constructors
         public Reclamo()
         {
-            this.empleado = new Empleado();
+            //this.empleado = new Empleado();
         }
 
-        public Reclamo(DateTime fecha, Vecino vecino, Empleado empleado, TipoDeReclamo tipo, string observacion, Guid identificador)
+        public Reclamo(DateTime fecha, string empleadoNombre, TipoDeReclamo tipo, string observacion, Guid identificador)
         {
             this.Fecha = fecha;
-            this.Vecino = vecino;
-            this.Empleado = empleado;
+            this.Empleado = empleadoNombre;
             this.Tipo = tipo;
             this.Observacion = observacion;
             this.Identificador = identificador;
@@ -59,27 +57,15 @@ namespace Entidades
             }
         }
 
-        private Vecino Vecino
+        public string Empleado
         {
             get
             {
-                return this.vecino;
+                return this.empleadoNombre;
             }
             set
             {
-                this.vecino = value;
-            }
-        }
-
-        private Empleado Empleado
-        {
-            get
-            {
-                return this.empleado;
-            }
-            set
-            {
-                this.empleado = value;
+                this.empleadoNombre = value;
             }
         }
 
@@ -113,8 +99,7 @@ namespace Entidades
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"FECHA: {this.Fecha}");
-            //sb.AppendLine($"VECINO: {this.vecino.Ficha}");
-            sb.AppendLine($"ATENDIDO POR: {this.Empleado.Ficha}");
+            sb.AppendLine($"ATENDIDO POR: {this.Empleado}");
             sb.AppendLine($"TIPO DE RECLAMO: {this.Tipo}");
             sb.AppendLine($"OBSERVACION: {this.observacion}");
             return sb.ToString();

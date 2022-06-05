@@ -121,7 +121,9 @@
             // 
             // dtpFecha
             // 
+            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFecha.Location = new System.Drawing.Point(13, 319);
+            this.dtpFecha.MaxDate = new System.DateTime(2022, 12, 25, 23, 59, 59, 0);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(304, 23);
             this.dtpFecha.TabIndex = 4;

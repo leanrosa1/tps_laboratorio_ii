@@ -10,3 +10,15 @@ C:\Users\Leandro\Desktop\Laboratorio\Rosa.Leandro.2C.TP3\Entidades\obj\Debug\net
 C:\Users\Leandro\Desktop\Laboratorio\Rosa.Leandro.2C.TP3\Entidades\obj\Debug\net5.0\refint\Entidades.dll
 C:\Users\Leandro\Desktop\Laboratorio\Rosa.Leandro.2C.TP3\Entidades\obj\Debug\net5.0\Entidades.pdb
 C:\Users\Leandro\Desktop\Laboratorio\Rosa.Leandro.2C.TP3\Entidades\obj\Debug\net5.0\ref\Entidades.dll
+C:\Users\Leandro\Desktop\tps_laboratorio_ii\TP3\Entidades\bin\Debug\net5.0\Entidades.deps.json
+C:\Users\Leandro\Desktop\tps_laboratorio_ii\TP3\Entidades\bin\Debug\net5.0\Entidades.dll
+C:\Users\Leandro\Desktop\tps_laboratorio_ii\TP3\Entidades\bin\Debug\net5.0\Entidades.pdb
+C:\Users\Leandro\Desktop\tps_laboratorio_ii\TP3\Entidades\obj\Debug\net5.0\Entidades.csproj.AssemblyReference.cache
+C:\Users\Leandro\Desktop\tps_laboratorio_ii\TP3\Entidades\obj\Debug\net5.0\Entidades.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Leandro\Desktop\tps_laboratorio_ii\TP3\Entidades\obj\Debug\net5.0\Entidades.AssemblyInfoInputs.cache
+C:\Users\Leandro\Desktop\tps_laboratorio_ii\TP3\Entidades\obj\Debug\net5.0\Entidades.AssemblyInfo.cs
+C:\Users\Leandro\Desktop\tps_laboratorio_ii\TP3\Entidades\obj\Debug\net5.0\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\Leandro\Desktop\tps_laboratorio_ii\TP3\Entidades\obj\Debug\net5.0\Entidades.dll
+C:\Users\Leandro\Desktop\tps_laboratorio_ii\TP3\Entidades\obj\Debug\net5.0\refint\Entidades.dll
+C:\Users\Leandro\Desktop\tps_laboratorio_ii\TP3\Entidades\obj\Debug\net5.0\Entidades.pdb
+C:\Users\Leandro\Desktop\tps_laboratorio_ii\TP3\Entidades\obj\Debug\net5.0\ref\Entidades.dll

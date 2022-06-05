@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Leandro\\Desktop\\Laboratorio\\Rosa.Leandro.2C.TP3\\Vista\\Vista.csproj": {}
+    "C:\\Users\\Leandro\\Desktop\\tps_laboratorio_ii\\TP3\\Vista\\Vista.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Leandro\\Desktop\\Laboratorio\\Rosa.Leandro.2C.TP3\\Entidades\\Entidades.csproj": {
+    "C:\\Users\\Leandro\\Desktop\\tps_laboratorio_ii\\TP3\\Entidades\\Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Leandro\\Desktop\\Laboratorio\\Rosa.Leandro.2C.TP3\\Entidades\\Entidades.csproj",
+        "projectUniqueName": "C:\\Users\\Leandro\\Desktop\\tps_laboratorio_ii\\TP3\\Entidades\\Entidades.csproj",
         "projectName": "Entidades",
-        "projectPath": "C:\\Users\\Leandro\\Desktop\\Laboratorio\\Rosa.Leandro.2C.TP3\\Entidades\\Entidades.csproj",
+        "projectPath": "C:\\Users\\Leandro\\Desktop\\tps_laboratorio_ii\\TP3\\Entidades\\Entidades.csproj",
         "packagesPath": "C:\\Users\\Leandro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Leandro\\Desktop\\Laboratorio\\Rosa.Leandro.2C.TP3\\Entidades\\obj\\",
+        "outputPath": "C:\\Users\\Leandro\\Desktop\\tps_laboratorio_ii\\TP3\\Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Leandro\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -58,14 +58,14 @@
         }
       }
     },
-    "C:\\Users\\Leandro\\Desktop\\Laboratorio\\Rosa.Leandro.2C.TP3\\Vista\\Vista.csproj": {
+    "C:\\Users\\Leandro\\Desktop\\tps_laboratorio_ii\\TP3\\Vista\\Vista.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Leandro\\Desktop\\Laboratorio\\Rosa.Leandro.2C.TP3\\Vista\\Vista.csproj",
+        "projectUniqueName": "C:\\Users\\Leandro\\Desktop\\tps_laboratorio_ii\\TP3\\Vista\\Vista.csproj",
         "projectName": "Vista",
-        "projectPath": "C:\\Users\\Leandro\\Desktop\\Laboratorio\\Rosa.Leandro.2C.TP3\\Vista\\Vista.csproj",
+        "projectPath": "C:\\Users\\Leandro\\Desktop\\tps_laboratorio_ii\\TP3\\Vista\\Vista.csproj",
         "packagesPath": "C:\\Users\\Leandro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Leandro\\Desktop\\Laboratorio\\Rosa.Leandro.2C.TP3\\Vista\\obj\\",
+        "outputPath": "C:\\Users\\Leandro\\Desktop\\tps_laboratorio_ii\\TP3\\Vista\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Leandro\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -82,8 +82,8 @@
           "net5.0-windows7.0": {
             "targetAlias": "net5.0-windows",
             "projectReferences": {
-              "C:\\Users\\Leandro\\Desktop\\Laboratorio\\Rosa.Leandro.2C.TP3\\Entidades\\Entidades.csproj": {
-                "projectPath": "C:\\Users\\Leandro\\Desktop\\Laboratorio\\Rosa.Leandro.2C.TP3\\Entidades\\Entidades.csproj"
+              "C:\\Users\\Leandro\\Desktop\\tps_laboratorio_ii\\TP3\\Entidades\\Entidades.csproj": {
+                "projectPath": "C:\\Users\\Leandro\\Desktop\\tps_laboratorio_ii\\TP3\\Entidades\\Entidades.csproj"
               }
             }
           }

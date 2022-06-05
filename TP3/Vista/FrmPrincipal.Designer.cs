@@ -31,6 +31,7 @@
             this.btnCargarVecino = new System.Windows.Forms.Button();
             this.btnCargarEmpleado = new System.Windows.Forms.Button();
             this.btnCargarReclamo = new System.Windows.Forms.Button();
+            this.btnVerInfoVecino = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCargarVecino
@@ -38,7 +39,7 @@
             this.btnCargarVecino.Location = new System.Drawing.Point(27, 37);
             this.btnCargarVecino.Name = "btnCargarVecino";
             this.btnCargarVecino.Size = new System.Drawing.Size(273, 36);
-            this.btnCargarVecino.TabIndex = 0;
+            this.btnCargarVecino.TabIndex = 1;
             this.btnCargarVecino.Text = "Cargar vecino";
             this.btnCargarVecino.UseVisualStyleBackColor = true;
             this.btnCargarVecino.Click += new System.EventHandler(this.btnCargarVecino_Click);
@@ -48,7 +49,7 @@
             this.btnCargarEmpleado.Location = new System.Drawing.Point(27, 117);
             this.btnCargarEmpleado.Name = "btnCargarEmpleado";
             this.btnCargarEmpleado.Size = new System.Drawing.Size(273, 36);
-            this.btnCargarEmpleado.TabIndex = 1;
+            this.btnCargarEmpleado.TabIndex = 2;
             this.btnCargarEmpleado.Text = "Cargar empleado";
             this.btnCargarEmpleado.UseVisualStyleBackColor = true;
             this.btnCargarEmpleado.Click += new System.EventHandler(this.btnCargarEmpleado_Click);
@@ -58,16 +59,27 @@
             this.btnCargarReclamo.Location = new System.Drawing.Point(27, 197);
             this.btnCargarReclamo.Name = "btnCargarReclamo";
             this.btnCargarReclamo.Size = new System.Drawing.Size(273, 36);
-            this.btnCargarReclamo.TabIndex = 2;
+            this.btnCargarReclamo.TabIndex = 3;
             this.btnCargarReclamo.Text = "Cargar reclamo";
             this.btnCargarReclamo.UseVisualStyleBackColor = true;
             this.btnCargarReclamo.Click += new System.EventHandler(this.btnCargarReclamo_Click);
+            // 
+            // btnVerInfoVecino
+            // 
+            this.btnVerInfoVecino.Location = new System.Drawing.Point(27, 276);
+            this.btnVerInfoVecino.Name = "btnVerInfoVecino";
+            this.btnVerInfoVecino.Size = new System.Drawing.Size(273, 36);
+            this.btnVerInfoVecino.TabIndex = 4;
+            this.btnVerInfoVecino.Text = "Ver información de vecino";
+            this.btnVerInfoVecino.UseVisualStyleBackColor = true;
+            this.btnVerInfoVecino.Click += new System.EventHandler(this.btnVerInfoVecino_Click);
             // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(330, 270);
+            this.ClientSize = new System.Drawing.Size(330, 353);
+            this.Controls.Add(this.btnVerInfoVecino);
             this.Controls.Add(this.btnCargarReclamo);
             this.Controls.Add(this.btnCargarEmpleado);
             this.Controls.Add(this.btnCargarVecino);
@@ -87,5 +99,6 @@
         private System.Windows.Forms.Button btnCargarVecino;
         private System.Windows.Forms.Button btnCargarEmpleado;
         private System.Windows.Forms.Button btnCargarReclamo;
+        private System.Windows.Forms.Button btnVerInfoVecino;
     }
 }

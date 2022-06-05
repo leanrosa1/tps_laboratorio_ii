@@ -27,6 +27,8 @@ namespace Vista
         public FrmCargarVecino()
         {
             InitializeComponent();
+            this.dtpFecha.MaxDate = DateTime.Today.AddYears(-18);
+            this.dtpFecha.MinDate = DateTime.Today.AddYears(-120);
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

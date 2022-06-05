@@ -20,6 +20,7 @@ namespace Vista
         private static char separador;
         private static string rutaBase;
         private static string rutaBaseVecinos;
+        private static string rutaBaseEmpleados;
         private Vecino vecino;
         private Empleado empleado;
 
@@ -31,12 +32,15 @@ namespace Vista
             separador = Path.DirectorySeparatorChar;
             rutaBase = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}{separador}Leandro_Rosa{separador}Reclamos{separador}";
             rutaBaseVecinos = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}{separador}Leandro_Rosa{separador}Vecinos{separador}";
+            rutaBaseEmpleados = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}{separador}Leandro_Rosa{separador}Empleados{separador}";
             Directory.CreateDirectory(rutaBase);
         }
         public FrmCargarReclamo()
         {
             InitializeComponent();
             this.cmbTipo.DataSource = Enum.GetValues(typeof(TipoDeReclamo));
+            this.dtpFecha.MaxDate = DateTime.Today;
+            this.dtpFecha.MinDate = DateTime.Today.AddMonths(-1);
         }
 
         private bool ValidarSiCamposEstanCompletos()
@@ -51,12 +55,11 @@ namespace Vista
         private Reclamo ObtenerReclamoDesdeFrm()
         {
             DateTime fecha = this.dtpFecha.Value;
-            Vecino vecino = this.vecino;
-            Empleado empleado = this.empleado;
+            string empleadoNombre = this.empleado.NombreCompleto;
             TipoDeReclamo tipo = (TipoDeReclamo)this.cmbTipo.SelectedIndex;
             string observacion = this.rtbObservacion.Text;
             Guid id = Guid.NewGuid();
-            return new Reclamo(fecha, vecino, empleado, tipo, observacion, id);
+            return new Reclamo(fecha, empleadoNombre, tipo, observacion, id);
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -82,6 +85,7 @@ namespace Vista
         private void btnSeleccionarVecino_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
+            dialog.InitialDirectory = rutaBaseVecinos;
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = dialog.FileName;
@@ -107,6 +111,7 @@ namespace Vista
         private void btnSeleccionarEmpleado_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
+            dialog.InitialDirectory = rutaBaseEmpleados;
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = dialog.FileName;

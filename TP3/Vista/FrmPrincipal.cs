@@ -39,5 +39,11 @@ namespace Vista
             FrmCargarReclamo form = new FrmCargarReclamo();
             form.ShowDialog();
         }
+
+        private void btnVerInfoVecino_Click(object sender, EventArgs e)
+        {
+            FrmVerInfoVecino form = new FrmVerInfoVecino();
+            form.ShowDialog();
+        }
     }
 }

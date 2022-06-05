@@ -120,6 +120,7 @@ namespace Entidades
                 sb.AppendLine($"DIRECCION: {this.Direccion}");
                 sb.AppendLine($"FECHA DE NACIMIENTO: {this.FechaDeNacimiento}");
                 sb.AppendLine($"DNI: {this.Dni}");
+                sb.AppendLine(" ");
                 for (int i = 0; i < this.Reclamos.Count; i++)
                 {
                     sb.AppendLine($"-----Reclamo {i + 1}-----");
