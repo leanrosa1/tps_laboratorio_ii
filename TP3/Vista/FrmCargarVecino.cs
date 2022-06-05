@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class FrmCargarVecino : Form
+    public partial class FrmCargarVecino : FormBase
     {
         private static Serializador<Vecino> serializador;
         private static string rutaBase;
@@ -31,6 +31,11 @@ namespace Vista
             this.dtpFecha.MinDate = DateTime.Today.AddYears(-120);
         }
 
+        /// <summary>
+        /// Unidad 10 – Excepciones 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             bool puedeGuardar = this.ValidarSiCamposEstanCompletos();
@@ -39,17 +44,24 @@ namespace Vista
                 Vecino vecino = this.ObtenerVecinoDesdeFrm();
                 if (vecino != null)
                 {
-                    serializador.SerializarJsonYGuardar($"{rutaBase}{vecino.Dni}.txt", vecino);
-                    this.Close();
+                    try
+                    {
+                        serializador.SerializarJsonYGuardar($"{rutaBase}{vecino.Dni}.txt", vecino);
+                        this.Close();
+                    }
+                    catch
+                    {
+                        MostrarMensajeDeError("Error", "Ocurrió un error al intentar guardar el archivo");
+                    }
                 }
             }
             else
             {
-                MessageBox.Show("Complete todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MostrarMensajeDeError("Error", "Complete todos los campos");
             }
         }
 
-        private bool ValidarSiCamposEstanCompletos()
+        protected override bool ValidarSiCamposEstanCompletos()
         {
             return !(string.IsNullOrEmpty(this.txtNombre.Text) ||
                 string.IsNullOrEmpty(this.txtApellido.Text) ||
@@ -57,6 +69,10 @@ namespace Vista
                 string.IsNullOrEmpty(this.txtDni.Text));
         }
 
+        /// <summary>
+        /// Unidad 10 – Excepciones 
+        /// </summary>
+        /// <returns></returns>
         private Vecino ObtenerVecinoDesdeFrm()
         {
             string nombre = this.txtNombre.Text;
@@ -70,7 +86,7 @@ namespace Vista
             }
             catch
             {
-                MessageBox.Show("Dni inválido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MostrarMensajeDeError("Error", "Dni inválido");
                 return null;
             }
             return new Vecino(nombre, apellido, direccion, fechaDeNacimiento, dni);

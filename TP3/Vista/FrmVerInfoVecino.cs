@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class FrmVerInfoVecino : Form
+    public partial class FrmVerInfoVecino : FormBase
     {
         private static Serializador<Vecino> serializador;
         private static char separador;
@@ -27,6 +27,11 @@ namespace Vista
         public FrmVerInfoVecino()
         {
             InitializeComponent();
+        }
+
+        protected override bool ValidarSiCamposEstanCompletos()
+        {
+            throw new NotImplementedException();
         }
 
         private void btnSeleccionarVecino_Click(object sender, EventArgs e)
@@ -51,7 +56,7 @@ namespace Vista
                 }
                 catch
                 {
-                    MessageBox.Show("No se pudo obtener vecino", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MostrarMensajeDeError("Error", "No se pudo obtener vecino");
                 }
             }
         }

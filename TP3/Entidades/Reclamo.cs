@@ -19,9 +19,16 @@ namespace Entidades
         #region Constructors
         public Reclamo()
         {
-            //this.empleado = new Empleado();
         }
 
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase Reclamo
+        /// </summary>
+        /// <param name="fecha"></param>
+        /// <param name="empleadoNombre"></param>
+        /// <param name="tipo"></param>
+        /// <param name="observacion"></param>
+        /// <param name="identificador"></param>
         public Reclamo(DateTime fecha, string empleadoNombre, TipoDeReclamo tipo, string observacion, Guid identificador)
         {
             this.Fecha = fecha;
@@ -34,6 +41,9 @@ namespace Entidades
 
         #region Properties
 
+        /// <summary>
+        /// Retorna o establece un valor Guid en el atributo identificador
+        /// </summary>
         public Guid Identificador
         {
             get
@@ -45,6 +55,10 @@ namespace Entidades
                 this.identificador = value;
             }
         }
+
+        /// <summary>
+        /// Retorna o establece un valor DateTime en el atributo fecha
+        /// </summary>
         public DateTime Fecha 
         {
             get
@@ -57,6 +71,9 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Retorna o establece un valor string en el atributo empleadoNombre
+        /// </summary>
         public string Empleado
         {
             get
@@ -69,6 +86,9 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Retorna o establece un valor TipoDeReclamo en el atributo tipo
+        /// </summary>
         public TipoDeReclamo Tipo
         {
             get
@@ -81,6 +101,9 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Retorna o establece un valor string en el atributo observacion
+        /// </summary>
         public string Observacion
         {
             get
@@ -95,6 +118,10 @@ namespace Entidades
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Retorna los valores en los atributos de la instancia
+        /// </summary>
+        /// <returns> String con fecha, nombre del empleado, tipo de reclamo y observación</returns>
         public string ObtenerInformacion()
         {
             StringBuilder sb = new StringBuilder();

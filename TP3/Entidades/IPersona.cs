@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
+    /// <summary>
+    /// Unidad 13 – Interfaces 
+    /// </summary>
     public interface IPersona
     {
         public string NombreCompleto { get; }

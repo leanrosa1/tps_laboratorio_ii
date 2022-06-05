@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class FrmCargarEmpleado : Form
+    public partial class FrmCargarEmpleado : FormBase
     {
         private static Serializador<Empleado> serializador;
         private static string rutaBase;
@@ -28,6 +28,11 @@ namespace Vista
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Unidad 10 – Excepciones 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             bool puedeGuardar = this.ValidarSiCamposEstanCompletos();
@@ -36,22 +41,33 @@ namespace Vista
                 Empleado empleado = this.ObtenerEmpleadoDesdeFrm();
                 if (empleado != null)
                 {
-                    serializador.SerializarJsonYGuardar($"{rutaBase}{empleado.Dni}.txt", empleado);
-                    this.Close();
+                    try
+                    {
+                        serializador.SerializarJsonYGuardar($"{rutaBase}{empleado.Dni}.txt", empleado);
+                        this.Close();
+                    }
+                    catch
+                    {
+                        MostrarMensajeDeError("Error", "Ocurrió un error al intentar guardar el archivo");
+                    }
                 }
             }
             else
             {
-                MessageBox.Show("Complete todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MostrarMensajeDeError("Error", "Complete todos los campos");
             }
         }
 
-        private bool ValidarSiCamposEstanCompletos()
+        protected override bool ValidarSiCamposEstanCompletos()
         {
             return !(string.IsNullOrEmpty(this.txtNombre.Text) ||
                 string.IsNullOrEmpty(this.txtApellido.Text));
         }
 
+        /// <summary>
+        /// Unidad 10 – Excepciones 
+        /// </summary>
+        /// <returns></returns>
         private Empleado ObtenerEmpleadoDesdeFrm()
         {
             string nombre = this.txtNombre.Text;
@@ -63,7 +79,7 @@ namespace Vista
             }
             catch
             {
-                MessageBox.Show("Dni inválido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MostrarMensajeDeError("Error", "Dni inválido");
                 return null;
             }
             return new Empleado(nombre, apellido, dni);

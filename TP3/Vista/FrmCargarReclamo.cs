@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class FrmCargarReclamo : Form
+    public partial class FrmCargarReclamo : FormBase
     {
         private static Serializador<Reclamo> serializador;
         private static Serializador<Empleado> serializadorEmpleado;
@@ -43,7 +43,7 @@ namespace Vista
             this.dtpFecha.MinDate = DateTime.Today.AddMonths(-1);
         }
 
-        private bool ValidarSiCamposEstanCompletos()
+        protected override bool ValidarSiCamposEstanCompletos()
         {
             return !(string.IsNullOrEmpty(this.rtbObservacion.Text) ||
                 (this.cmbTipo.SelectedValue == null) ||
@@ -62,6 +62,11 @@ namespace Vista
             return new Reclamo(fecha, empleadoNombre, tipo, observacion, id);
         }
 
+        /// <summary>
+        /// Unidad 10 – Excepciones 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             bool puedeGuardar = this.ValidarSiCamposEstanCompletos();
@@ -70,18 +75,31 @@ namespace Vista
                   Reclamo reclamo = this.ObtenerReclamoDesdeFrm();
                 if (reclamo != null)
                 {
-                    string fileName = $"{reclamo.Identificador}";
-                    serializador.SerializarJsonYGuardar($"{rutaBase}{fileName}.txt", reclamo);
-                    agregarReclamoAlVecinoYActualizarFile(reclamo);
-                    this.Close();
+                    try
+                    {
+                        string fileName = $"{reclamo.Identificador}";
+                        serializador.SerializarJsonYGuardar($"{rutaBase}{fileName}.txt", reclamo);
+                        agregarReclamoAlVecinoYActualizarFile(reclamo);
+                        this.Close();
+                    }
+                    catch
+                    {
+                        MostrarMensajeDeError("Error", "Ocurrió un error al intentar guardar el archivo");
+                    }
+                    
                 }
             }
             else
             {
-                MessageBox.Show("Complete todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MostrarMensajeDeError("Error", "Complete todos los campos");
             }
         }
 
+        /// <summary>
+        /// Unidad 10 – Excepciones 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSeleccionarVecino_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
@@ -103,11 +121,16 @@ namespace Vista
                 }
                 catch
                 {
-                    MessageBox.Show("No se pudo obtener vecino", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MostrarMensajeDeError("Error", "No se pudo obtener vecino");
                 }
             }
         }
 
+        /// <summary>
+        /// Unidad 10 – Excepciones 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSeleccionarEmpleado_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
@@ -122,16 +145,27 @@ namespace Vista
                 }
                 catch
                 {
-                    MessageBox.Show("No se pudo obtener empleado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MostrarMensajeDeError("Error", "No se pudo obtener empleado");
                 }
             }
         }
 
+        /// <summary>
+        /// Unidad 10 – Excepciones 
+        /// </summary>
+        /// <param name="reclamo"></param>
         private void agregarReclamoAlVecinoYActualizarFile(Reclamo reclamo)
         {
-            this.vecino.AgregarReclamo(reclamo);
-            string fileName = $"{rutaBaseVecinos}{this.vecino.Dni}.txt";
-            serializadorVecino.SerializarJsonYGuardar(fileName, this.vecino);
+            try
+            {
+                this.vecino.AgregarReclamo(reclamo);
+                string fileName = $"{rutaBaseVecinos}{this.vecino.Dni}.txt";
+                serializadorVecino.SerializarJsonYGuardar(fileName, this.vecino);
+            }
+            catch
+            {
+                MostrarMensajeDeError("Error", "No se pudo agregar el reclamo al vecino");
+            }
         }
     }
 }

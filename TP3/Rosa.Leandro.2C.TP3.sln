@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{8B347838-7B65-476E-8122-350165BCD988}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entidades", "Entidades\Entidades.csproj", "{8B347838-7B65-476E-8122-350165BCD988}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vista", "Vista\Vista.csproj", "{1781637A-735F-4BA7-8883-FF90B5E85322}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vista", "Vista\Vista.csproj", "{1781637A-735F-4BA7-8883-FF90B5E85322}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pruebas unitarias", "Pruebas unitarias\Pruebas unitarias.csproj", "{7F6CFCC4-7D2B-48CB-988B-A93101DEA396}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{1781637A-735F-4BA7-8883-FF90B5E85322}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1781637A-735F-4BA7-8883-FF90B5E85322}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1781637A-735F-4BA7-8883-FF90B5E85322}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F6CFCC4-7D2B-48CB-988B-A93101DEA396}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F6CFCC4-7D2B-48CB-988B-A93101DEA396}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F6CFCC4-7D2B-48CB-988B-A93101DEA396}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F6CFCC4-7D2B-48CB-988B-A93101DEA396}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
