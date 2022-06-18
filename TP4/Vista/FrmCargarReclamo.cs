@@ -41,7 +41,16 @@ namespace Vista
         {
             InitializeComponent();
             this.reclamoDAO = new ReclamoDAO();
-            this.cmbTipo.DataSource = Enum.GetValues(typeof(TipoDeReclamo));
+            this.cmbTipo.DisplayMember = "Description";
+            this.cmbTipo.DataSource = Enum.GetValues(typeof(TipoDeReclamo))
+                .Cast<Enum>()
+                .Select(value => new
+                {
+                    (Attribute.GetCustomAttribute(value.GetType().GetField(value.ToString()), typeof(DescriptionAttribute)) as DescriptionAttribute).Description,
+                    value
+                })
+                .OrderBy(item => item.value)
+                .ToList();
             this.dtpFecha.MaxDate = DateTime.Today;
             this.dtpFecha.MinDate = DateTime.Today.AddMonths(-1);
         }

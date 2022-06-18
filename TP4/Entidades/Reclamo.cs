@@ -181,6 +181,8 @@ namespace Entidades
             sb.AppendLine($"OBSERVACION: {this.observacion}");
             return sb.ToString();
         }
+
+
         #endregion
     }
 }
